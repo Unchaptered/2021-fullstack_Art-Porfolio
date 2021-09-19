@@ -1,39 +1,35 @@
-// Procedure (INPORT)
-
-import "dotenv/config"; // 환경변수 호출
-
-// import "./db";
-// import "./models/shcema";
-
-const PORT=4000;
-
-const handleListening=()=>{
-    console.log(
-        `✅ file : server listening on port : http://localhost:${PORT}`
-    );
-};
-
-
 import express from "express";
 import morgan from "morgan";
 import session from "express-session";
-import MongoStore from "connect-mongo";;
+import MongoStore from "connect-mongo";
 
-// import routers from "./routers/:id{}routers";
-// import middelware from "./middleware";
+import globalRouter from "./router/globalRouter";
+import accountRouter from "./router/accountRouter";
+import projectRouter from "./router/projectRouter";
+import membershipRouter from "./router/membershipRouter";
+import lectureRouter from "./router/lectureRouter";
+import apiRouter from "./router/apiRouter";
+import fundingRouter from "./router/fundingRouter";
+// Middleware
 
-const app=exrpess();
-const looger=morgan("dev");
+const app=express();
+const morganLogger=morgan("dev");
 
-app.set("view engine", "pug"); // view settings
+app.set("view engine", "pug");
 app.set("views", process.cwd()+"/src/views");
-app.use(logger);
-
+app.use(morganLogger);
 app.use(express.urlencoded({extended:true}));
 
-// Session Part
+// Sessions
 
-// Router settings
-// app.use("/",router);
+// URL
+app.use("/",globalRouter);
+app.use("/account",accountRouter);
+app.use("/project",projectRouter);
+app.use("/membership",membershipRouter);
+app.use("/lecture",lectureRouter);
+app.use("/funding",fundingRouter);
+app.use("/api",apiRouter);
+// URL (STATIC)
 
 export default app;

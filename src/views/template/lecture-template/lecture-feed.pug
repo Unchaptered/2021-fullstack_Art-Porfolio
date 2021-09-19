@@ -1,0 +1,17 @@
+extends ../../base/base.pug
+include ../../mixins/lecture-model.pug
+
+block content
+    a(href="/") &larr; 뒤로가기
+    br
+    a(href="lecture/upload") 강좌 업로드
+    br
+    a(href="lecture/adminstration") 강좌 관리
+    
+    div.feed__lecture-grid
+        h4 강좌 리스트
+        div.feed__lecture-box
+            each lecture in lectureConstructors
+                +lecture(lecture)
+            else
+                span Any Lecture Not Found(404)

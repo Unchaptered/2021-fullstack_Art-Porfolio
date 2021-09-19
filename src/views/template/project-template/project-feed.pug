@@ -1,0 +1,17 @@
+extends ../../base/base.pug
+include ../../mixins/project-model.pug
+
+block content
+    a(href="/") &larr; 뒤로가기
+    br
+    a(href="project/upload") 프로젝트 업로드
+    br
+    a(href="project/adminstration") 프로젝트 관리
+    
+    div.feed__project-grid
+        h4 프로젝트 리스트
+        div.feed__project-box
+            each project in projectConstructors
+                +project(project)
+            else
+                span Any Project Not Found(404)

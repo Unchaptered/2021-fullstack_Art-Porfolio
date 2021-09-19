@@ -1,0 +1,18 @@
+doctype html
+html(lang="ho")
+    head
+        title Prototype
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+
+    body
+        include ../partials/nav.pug
+
+
+        main
+            if errorMessage
+                span=errorMessage
+            block content 
+        
+        include ../partials/footer.pug
+
+    script 

@@ -1,0 +1,8 @@
+extends ../../base/base.pug
+
+block content
+    form(method="POST")#account-login__form
+        label(for="email")#account-create__name 일반계정
+        input(name="username", placeholder="이메일 또는 유저이름", type="text", required, value=username)
+        input(name="password", placeholder="비밀번호", type="password", required)
+        input(name="login", value="계정 로그인", type="submit")

@@ -1,0 +1,10 @@
+extends ../../base/base.pug
+
+block content
+    a(href="/lecture") &larr; 뒤로가기
+    form(method="POST")#project-upload__form
+        label(for="name") 강좌 생성
+        input(name="name", placeholder="강좌 이름", type="text")
+        input(name="owner", placeholder="강좌 소유주", type="text")
+
+        input(name="create", value="강좌 생성", type="submit")
