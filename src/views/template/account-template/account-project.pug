@@ -1,0 +1,12 @@
+extends ../../base/base.pug
+include ../../mixins/project-model.pug
+
+block content
+    a(href="/project") &larr; 뒤로가기
+    div.feed__project-grid
+        h4 프로젝트 열람 
+        div.feed__project-box
+            each project in projectConstructors
+                +project(project)
+            else
+                span We can't find Poject(404)

@@ -1,0 +1,6 @@
+mixin projectFile(projectFile)
+    div.projectFile-mixin
+        span 파일 제목 : #{projectFile.name} <br>
+        span 파일 소유 : #{projectFile.ownerString} <br>
+        span 파일 소유 : #{projectFile.owner} <br>
+        a(href=`/account/${projectFile.owner}`) 파일 열람

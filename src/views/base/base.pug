@@ -1,13 +1,17 @@
 doctype html
 html(lang="ho")
     head
-        title Prototype
+        title #{pageTitle} / Portfolio
         link(rel="stylesheet" href="https://unpkg.com/mvp.css")
 
     body
         include ../partials/nav.pug
 
-
+        header
+            if pageTitle
+                span=pageTitle
+            else
+                span 당신의 포트폴리오를 업로드해보세요
         main
             if errorMessage
                 span=errorMessage

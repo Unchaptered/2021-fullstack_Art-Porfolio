@@ -1,0 +1,10 @@
+extends ../../base/base.pug
+
+block content
+    a(href="/project") &larr; 뒤로가기
+    form(method="POST", enctype="multipart/form-data")#project-upload__form
+        label(for="image") #{loggedInUser.username} 님의 파일 생성
+        input(name="image", type="file", accept="image/*")
+        input(name="name", placeholder="파일 이름", type="text", required)
+
+        input(name="create", value="파일 생성", type="submit")

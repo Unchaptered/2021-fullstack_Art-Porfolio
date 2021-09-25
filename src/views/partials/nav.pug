@@ -1,11 +1,14 @@
 nav#nav
     a(href="/")#nav_logo 로고
     a(href="/project")#nav_feed 프로젝트
+    a(href="/project/file")#nav_feed 프로젝트+파일
     a(href="/lecture")#nav_lecture 강좌
     a(href="/funding")#nav_funding 후원
-    input(type="text" placeholder="SEARCH")#nav_search
-    input(type="submit" value="SEARCH")
-    a(href="/account/")#nav_username 이름
-    a(href="/account/")#nav_settings 수정
-    a(href="/account/login")#nav_login 로그인
-    a(href="/account/join")#nav_join 회원가입
+    a(href="/search")#nav_serach 검색
+
+    if loggedIn
+        a(href=`/account/${loggedInUser._id}`)#nav_username [ #{loggedInUser.username} ]
+        a(href="/account/logout")#nav_login 로그아웃
+    else
+        a(href="/account/login")#nav_login 로그인
+        a(href="/account/join")#nav_join 회원가입

@@ -1,0 +1,9 @@
+extends ../../base/base.pug
+
+block content
+    form(method="POST")#account-login__form
+        label(for="username")#account-create__name 관리자계정
+        input(name="username", placeholder="관리자이름", type="text", required, value=username)
+        input(name="password", placeholder="비밀번호", type="password", required, minlength=10)
+        input(name="login", value="관리자 생성", type="submit")
+        span 관리자 계정은 별도 승인 후 사용할 수 있습니다.

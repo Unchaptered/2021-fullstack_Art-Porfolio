@@ -4,5 +4,24 @@ block content
     form(method="POST")#account-login__form
         label(for="email")#account-create__name 일반계정
         input(name="username", placeholder="이메일 또는 유저이름", type="text", required, value=username)
-        input(name="password", placeholder="비밀번호", type="password", required)
+        input(name="password", placeholder="비밀번호", type="password", required, minlength=10)
         input(name="login", value="계정 로그인", type="submit")
+    hr
+    div
+        span 계정이 없으신가요?
+        br
+        a(href="/account/join") 바로 가입하기 &rarr;
+    
+    div
+        span SNS 로그인을 원하시나요?
+        div
+            a(href="/account/google/start") 구글
+            a(href="/account/kakao/start") 카카오
+            a(href="/account/naver/start") 네이버
+            a(href="/account/facebook/start") 페이스북
+            a(href="/account/instagram/start") 인스타그램
+
+    div
+        sapn 관리자 계정 로그인을 원하시나요?
+        br
+        a(href="/admin/login") 관리자 계정 로그인하기 &rarr;

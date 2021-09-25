@@ -1,4 +1,17 @@
 mixin project(project)
     div.project-mixin
-        span 프로젝트 제목 : #{project.name} <br>
-        span 프로젝트 소유 : #{project.owner} <br>
+        span 소유자 : #{project.ownerString} <br>
+        span 프로젝트 : #{project.name} <br>
+        //- span 프로젝트 코드 : #{project._id} <br>
+        //- span 소유자 코드 : #{project.owner} <br>
+
+        a(href=`/account/${project.owner}`) 소유주 열람
+        br
+        a(href=`/account/${project.owner}/project/${project._id}`) 프로젝트 보기
+        br
+
+        if loggedInUser._id === String(project.owner)
+            a(href=`/account/${project.owner}/project/${project._id}/edit`) 프로젝트 수정
+            br
+            a(href=`/account/${project.owner}/project/${project._id}/delete`) 프로젝트 제거
+            br

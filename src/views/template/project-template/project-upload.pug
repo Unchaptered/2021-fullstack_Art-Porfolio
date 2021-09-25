@@ -3,8 +3,7 @@ extends ../../base/base.pug
 block content
     a(href="/project") &larr; 뒤로가기
     form(method="POST")#project-upload__form
-        label(for="name") 프로젝트 생성
-        input(name="name", placeholder="프로젝트 이름", type="text")
-        input(name="owner", placeholder="프로젝트 소유주", type="text")
+        label(for="name") #{loggedInUser.username} 님의 프로젝트 생성
+        input(name="name", placeholder="프로젝트 이름", type="text", required)
 
         input(name="create", value="프로젝트 생성", type="submit")

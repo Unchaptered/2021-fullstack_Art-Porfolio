@@ -3,7 +3,10 @@ import morgan from "morgan";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 
+import { localsMiddleware } from "./middleware";
+
 import globalRouter from "./router/globalRouter";
+import adminRouter from "./router/adminRouter";
 import accountRouter from "./router/accountRouter";
 import projectRouter from "./router/projectRouter";
 import membershipRouter from "./router/membershipRouter";
@@ -21,9 +24,20 @@ app.use(morganLogger);
 app.use(express.urlencoded({extended:true}));
 
 // Sessions
+app.use(
+    session ({
+        secret: process.env.COOKIE_SECRET,
+        resave: false,
+        saveUninitialized: false,
+        cookie: { maxAge: 7 * 24 * 3600 * 1000 },
+        store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
+    })
+);
+app.use(localsMiddleware);
 
 // URL
 app.use("/",globalRouter);
+app.use("/admin", adminRouter);
 app.use("/account",accountRouter);
 app.use("/project",projectRouter);
 app.use("/membership",membershipRouter);

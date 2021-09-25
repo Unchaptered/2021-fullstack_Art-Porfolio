@@ -5,15 +5,15 @@ include mixins/funding-model.pug
 
 block content
     div.feed__project-grid
-        h4 프로젝트 리스트
+        h4 프로젝트 리스트 <a href="/project">프로젝트만 보기</a>
         div.feed__project-box
             each project in projectConstructors
                 +project(project)
             else
                 span Any Project Not Found(404)
     hr
-    div.feed__lecture-grid
-        h4 강좌 리스트
+    div.feed__lecture-grid 
+        h4 강좌 리스트 <a href="/lecture">강좌만 보기</a>
         div.feed__lecture-box
             each lecture in lectureConstructors
                 +lecture(lecture)
@@ -21,7 +21,7 @@ block content
                 span Any Lecture Not Found(404)
     hr
     div.feed__funding-grid
-        h4 후원 리스트
+        h4 후원 리스트 <a href="/funding">강좌만 보기</a>
         div.feed__funding-box
             each funding in fundingConstructors
                 +funding(funding)
